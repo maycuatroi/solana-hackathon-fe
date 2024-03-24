@@ -1,6 +1,6 @@
 from seahorse.prelude import *
 
-declare_id('BQ98Z2xeGEebzdVjdYJjKbKWuBHNFhpDNX2Y8ssKcCbz')
+declare_id('59mLTDkzoXWmpGFc6xRehWsWJnmpzaQ4xndiUWzruM1k')
 
 
 class Product(Account):
@@ -106,7 +106,7 @@ def create_oder(signer: Signer, order: Empty[Order],
     order.owner = signer.key()
     order.product_owner = product.owner
     order.product = product.key()
-    signer.transfer_lamports(signer_token_account, product.price)
+    signer.transfer_lamports(product_owner_token_account, product.price)
     order.status = 'paid'
 
 
